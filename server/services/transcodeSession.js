@@ -185,6 +185,7 @@ class TranscodeSession extends EventEmitter {
             '-hide_banner',
             '-loglevel', 'warning',
             '-user_agent', this.options.userAgent,
+            '-bsf:a', 'aac_adtstoasc',
         ];
 
         // Add hardware acceleration input options based on encoder (only if encoding)
@@ -201,7 +202,6 @@ class TranscodeSession extends EventEmitter {
             '-reconnect', '1',
             '-reconnect_streamed', '1',
             '-reconnect_delay_max', '3',
-            '-bsf:a', 'aac_adtstoasc',
         );
 
         args.push('-i', this.url);
