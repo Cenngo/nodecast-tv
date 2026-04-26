@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
         '-reconnect', '1',
         '-reconnect_streamed', '1',
         '-reconnect_delay_max', '5',
-        '-absf', 'aac_adtstoasc',
+        '-bsf:v', 'aac_adtstoasc',
         // Prevent Range/HEAD requests that some providers reject with 405
         '-seekable', '0',
         '-i', url,
