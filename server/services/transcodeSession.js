@@ -200,7 +200,8 @@ class TranscodeSession extends EventEmitter {
             '-err_detect', 'ignore_err',
             '-reconnect', '1',
             '-reconnect_streamed', '1',
-            '-reconnect_delay_max', '3'
+            '-reconnect_delay_max', '3',
+            '-bsf:a', 'aac_adtstoasc',
         );
 
         args.push('-i', this.url);
