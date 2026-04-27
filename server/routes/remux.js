@@ -48,7 +48,6 @@ router.get('/', async (req, res) => {
         '-reconnect', '1',
         '-reconnect_streamed', '1',
         '-reconnect_delay_max', '5',
-        '-bsf:a', 'aac_adtstoasc',
         // Prevent Range/HEAD requests that some providers reject with 405
         '-seekable', '0',
         '-i', url,
@@ -62,6 +61,7 @@ router.get('/', async (req, res) => {
         '-c', 'copy',
         // Ensure extradata is correctly extracted/converted (fixes Annex B -> AVCC issues in Firefox)
         '-bsf:v', 'dump_extra',
+        '-bsf:a', 'aac_adtstoasc',
         // NOTE: We intentionally do NOT use -bsf:a aac_adtstoasc here
         // That filter only works for AAC audio and breaks AC3/EAC3/MP3.
         // If AAC audio from MPEG-TS fails in MP4, use /api/transcode instead.
